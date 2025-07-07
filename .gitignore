@@ -1,0 +1,12 @@
+# Ignorar ambiente virtual
+venv/
+
+# Ignorar arquivos do VS Code (opcional)
+.vscode/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Outros arquivos desnecessários
+*.log
