@@ -8,7 +8,7 @@ sin = math.sin
 cos = math.cos
 
 def pid():
-    g = 9.81 # m/s²
+    #g = 9.81 # m/s²
     m1 = 0.5 # kg
     m2 = 0.7 # kg
     M = 3 # kg
@@ -26,20 +26,20 @@ def pid():
     ki = 0.0001
     # ziegler nichols
 
-    x0 = -30 # Angulo inicial
+    x0 = -pi/6 # Angulo inicial em radianos
     v0 = 0
     z0 = 0
 
     h = 0.01 # Passo
     T = 20
     N = round(T/h)
-    
+
     t = [i*h for i in range(N+1)]
 
     x = [x0]    
     v = [v0]
     z = [z0]
-    
+
     for k in range(0, N):
         #tk = t[k]
 
@@ -82,7 +82,7 @@ def pid():
 
     plt.plot(t, x)
     plt.xlabel('Tempo (s)')
-    plt.ylabel('Angulo (°)')
+    plt.ylabel('Angulo (rad)')
     plt.title('Angulo vs tempo')
     plt.grid(True)
     plt.show()
