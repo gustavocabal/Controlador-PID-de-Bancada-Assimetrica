@@ -1,8 +1,5 @@
 import math
-import matplotlib
-matplotlib.use('TkAgg')   
 import matplotlib.pyplot as plt
-import numpy as np
 pi = math.pi 
 sin = math.sin
 cos = math.cos
@@ -18,7 +15,7 @@ def parametros_sistema():
     L_medio = L/2 # Equivalente à média de L1 e L2 ou posição do CM
     L1 = L_medio - d
     L2 = L_medio + d
-    B = 0.2 # Coeficiente de amortecimento em [vou pesquisar a unidade]
+    B = 0.2 # Coeficiente de amortecimento em kg.m²/s
 
     # Calculo de propriedades físicas do sistema
     Ixx = 1/12 * M * L**2 # kg.m²
@@ -33,9 +30,9 @@ def pid():
     T_Pesos, L_medio, B, J = parametros_sistema()
 
     # PID
-    kp = 0
-    kd = 0
-    ki = 0
+    kp = 8
+    kd = 10
+    ki = 2.5
 
     #Condições iniciais do sistema
     phi0 = -pi/6 # Angulo inicial em radianos
@@ -51,7 +48,7 @@ def pid():
     Torque_total = [T0]
 
     h = 0.01 # Passo
-    T = 20 # Período de análise
+    T = 50 # Período de análise
     N = round(T/h) # Número de pontos de amostragem
     t = [i*h for i in range(N+1)] # Lista de instantes de tempo
 
